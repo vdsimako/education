@@ -17,3 +17,4 @@ print(add(3))
 
 print(append(1))
 print(append(2))
+print(append(3, [1, 2]))

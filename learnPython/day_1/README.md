@@ -160,8 +160,8 @@ import this
 
 - https://realpython.com/if-name-main-python/
 
-[Code sample 1](test.py)  
-[Code sample 2](test/test.py)
+[Code sample 1](a.py)  
+[Code sample 2](b.py)
 
 🎤 Интервью:
 
