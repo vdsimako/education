@@ -48,7 +48,7 @@ print(q.items())  # [3, 4, 5]
 
 
 ##############################################################################################################################
-# Task 3 — DTO / Value Object через dataclass
+# Task 3 — DTO / Value Object using dataclass
 
 @dataclass(frozen=True, slots=True)
 class UserDTO:
