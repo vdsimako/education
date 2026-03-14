@@ -59,3 +59,4 @@ user = User(id=1, email="user@example.com")
 print(user)
 print(user.__slots__)
 
+# user.login = "t" - AttributeError
