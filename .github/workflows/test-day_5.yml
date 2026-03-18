@@ -1,14 +1,14 @@
-name: Run Tests for day_4_1
+name: Run Tests for day_5
 
 on:
   pull_request:
     branches: [ master ]
     types: [ opened, synchronize, reopened, ready_for_review ]
     paths:
-      - 'learnPython/day_4_1/**'
+      - 'learnPython/day_5/**'
 
 jobs:
   test:
     uses: ./.github/workflows/reusable-test-day.yml
     with:
-      day_name: day_4_1
+      day_name: day_5
