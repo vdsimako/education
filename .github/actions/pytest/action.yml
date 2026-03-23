@@ -1,0 +1,20 @@
+name: 'Run Pytest'
+description: 'Runs pytest tests for a specific day'
+
+inputs:
+  day_name:
+    description: 'Name of the day directory'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run tests for ${{ inputs.day_name }}
+      shell: bash
+      run: |
+        cd learnPython/${{ inputs.day_name }}
+        if [ -d "test" ]; then
+          python -m pytest test/ -v
+        else
+          echo "No test directory found, skipping tests"
+        fi
