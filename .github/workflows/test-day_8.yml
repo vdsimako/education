@@ -19,12 +19,12 @@ jobs:
       - name: Setup Python Environment
         uses: ./.github/actions/setup-python
 
-      - name: Run tests for day_8
-        uses: ./.github/actions/pytest
+      - name: Run mypy for day_8
+        uses: ./.github/actions/mypy
         with:
           day_name: day_8
 
-      - name: Run mypy for day_8
-        uses: ./.github/actions/mypy
+      - name: Run tests for day_8
+        uses: ./.github/actions/pytest
         with:
           day_name: day_8
