@@ -1,0 +1,30 @@
+name: Run Tests for day_8
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
+    paths:
+      - 'learnPython/day_8/**'
+
+jobs:
+  test-and-mypy:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python Environment
+        uses: ./.github/actions/setup-python
+
+      - name: Run mypy for day_8
+        uses: ./.github/actions/mypy
+        with:
+          day_name: day_8
+
+      - name: Run tests for day_8
+        uses: ./.github/actions/pytest
+        with:
+          day_name: day_8

@@ -17,29 +17,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
-
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r learnPython/requirements.txt
+      - name: Setup Python Environment
+        uses: ./.github/actions/setup-python
 
       - name: Run tests for ${{ inputs.day_name }}
-        run: |
-          cd learnPython/${{ inputs.day_name }}
-          if [ -d "test" ]; then
-            python -m pytest test/ -v
-          else
-            echo "No test directory found, skipping tests"
-          fi
+        uses: ./.github/actions/pytest
+        with:
+          day_name: ${{ inputs.day_name }}
