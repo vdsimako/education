@@ -1,0 +1,28 @@
+name: 'Run Pytest with Poetry'
+description: 'Runs pytest tests for a Poetry-based project'
+
+inputs:
+  day-name:
+    description: 'Name of the day directory'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run tests for ${{ inputs.day-name }}
+      shell: bash
+      run: |
+        cd learnPython/${{ inputs.day-name }}
+        
+        # Ensure we're using the Poetry virtual environment
+        echo "Using Poetry virtual environment"
+        
+        if [ -d "tests" ]; then
+          echo "Running tests in tests/ directory"
+          poetry run pytest tests/ -v
+        elif [ -d "test" ]; then
+          echo "Running tests in test/ directory"
+          poetry run pytest test/ -v
+        else
+          echo "No test or tests directory found, skipping tests"
+        fi

@@ -1,0 +1,14 @@
+name: Run Tests for day_13
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
+    paths:
+      - 'learnPython/day_13/**'
+
+jobs:
+  test:
+    uses: ./.github/workflows/reusable-test-day-poetry.yml
+    with:
+      day_name: day_13

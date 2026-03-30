@@ -13,8 +13,17 @@ runs:
       shell: bash
       run: |
         cd learnPython/${{ inputs.day_name }}
+        
+        # Activate virtual environment if it exists
+        if [ -d ".venv" ]; then
+          echo "Activating virtual environment"
+          source .venv/bin/activate
+        fi
+        
         if [ -d "test" ]; then
           python -m pytest test/ -v
+        elif [ -d "tests" ]; then
+          python -m pytest tests/ -v
         else
-          echo "No test directory found, skipping tests"
+          echo "No test or tests directory found, skipping tests"
         fi

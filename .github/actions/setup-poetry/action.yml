@@ -1,0 +1,51 @@
+name: 'Setup Poetry Environment'
+description: 'Sets up Poetry environment with caching and dependency installation'
+
+inputs:
+  python-version:
+    description: 'Python version to use'
+    required: false
+    default: '3.12'
+  day-name:
+    description: 'Day directory name'
+    required: true
+  cache-key-suffix:
+    description: 'Additional suffix for cache key'
+    required: false
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: latest
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+
+    - name: Cache Poetry dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/pypoetry
+          learnPython/${{ inputs.day-name }}/.venv
+        key: ${{ runner.os }}-poetry-${{ inputs.day-name }}-${{ hashFiles('learnPython/${{ inputs.day-name }}/poetry.lock') }}${{ inputs.cache-key-suffix }}
+        restore-keys: |
+          ${{ runner.os }}-poetry-${{ inputs.day-name }}-
+          ${{ runner.os }}-poetry-
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        cd learnPython/${{ inputs.day-name }}
+        echo "Installing Poetry dependencies for ${{ inputs.day-name }}"
+        poetry install --with test
