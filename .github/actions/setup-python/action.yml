@@ -10,6 +10,10 @@ inputs:
     description: 'Path to requirements.txt file'
     required: false
     default: 'learnPython/requirements.txt'
+  day-name:
+    description: 'Day directory name (for day-specific requirements)'
+    required: false
+    default: ''
 
 runs:
   using: 'composite'
@@ -34,4 +38,14 @@ runs:
       shell: bash
       run: |
         python -m pip install --upgrade pip
-        pip install -r ${{ inputs.requirements-path }}
+        
+        # Check for day-specific requirements first
+        if [ -n "${{ inputs.day-name }}" ] && [ -f "learnPython/${{ inputs.day-name }}/requirements.txt" ]; then
+          echo "Installing day-specific requirements for ${{ inputs.day-name }}"
+          pip install -r learnPython/${{ inputs.day-name }}/requirements.txt
+        elif [ -f "${{ inputs.requirements-path }}" ]; then
+          echo "Installing shared requirements"
+          pip install -r ${{ inputs.requirements-path }}
+        else
+          echo "No requirements.txt found, skipping dependency installation"
+        fi

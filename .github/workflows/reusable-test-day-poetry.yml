@@ -1,4 +1,4 @@
-name: Test Day Workflow
+name: Test Day Poetry Workflow
 
 on:
   workflow_call:
@@ -6,7 +6,7 @@ on:
       day_name:
         required: true
         type: string
-        description: "Name of the day directory (e.g., day_1, day_2)"
+        description: "Name of the day directory (e.g., day_13, day_14)"
 
 jobs:
   test:
@@ -17,12 +17,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python Environment
-        uses: ./.github/actions/setup-python
+      - name: Setup Poetry Environment
+        uses: ./.github/actions/setup-poetry
         with:
-          day_name: ${{ inputs.day_name }}
+          day-name: ${{ inputs.day_name }}
 
       - name: Run tests for ${{ inputs.day_name }}
-        uses: ./.github/actions/pytest
+        uses: ./.github/actions/pytest-poetry
         with:
-          day_name: ${{ inputs.day_name }}
+          day-name: ${{ inputs.day_name }}
