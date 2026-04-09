@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      APP_NAME: infra-basics-app
+      APP_ENV: local
+      LOG_LEVEL: INFO
+      PORT: 8000
