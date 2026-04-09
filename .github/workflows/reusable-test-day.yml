@@ -7,6 +7,11 @@ on:
         required: true
         type: string
         description: "Name of the day directory (e.g., day_1, day_2)"
+      requirements_path:
+        required: false
+        type: string
+        description: "Path to the requirements file"
+        default: 'learnPython/requirements.txt'
 
 jobs:
   test:
@@ -20,7 +25,7 @@ jobs:
       - name: Setup Python Environment
         uses: ./.github/actions/setup-python
         with:
-          day_name: ${{ inputs.day_name }}
+          day-name: ${{ inputs.day_name }}
 
       - name: Run tests for ${{ inputs.day_name }}
         uses: ./.github/actions/pytest
