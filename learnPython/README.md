@@ -1,14 +1,15 @@
-# Python Study Plan (Interview + Pet Project)
+# Python Study Plan
 
-Цель:
-- Подготовка к Python backend интервью (Middle+/Senior)
-- Понимание Python как production-языка
-- Создание pet-project для GitHub / CV
+## Structure
 
-Формат:
-- ⏱ 1–2 часа в день
-- 📌 Чекбоксы для отслеживания прогресса
-- 🎯 Фокус на backend и архитектуру
+- day_x - test task for learning programming on Python
+- [leetCode](leetCode) - tasks from LeetCode for practicing
+
+## Goals:
+
+- Prepare for Python backend interview as Middle+/Senior dev
+- Understand Python as production language
+- Create pet-project for CV/Github
 
 ---
 
@@ -25,6 +26,7 @@
 - [ ] `if __name__ == "__main__"`
 
 Practice:
+
 - [ ] Explain mutable default args bug
 - [ ] Explain `if data:` vs `if data is None`
 
@@ -42,6 +44,7 @@ Practice:
 - [ ] `slots=True`
 
 Practice:
+
 - [ ] Word frequency counter (`Counter`)
 - [ ] Bounded queue (`deque`)
 - [ ] Immutable DTO with dataclass
@@ -61,6 +64,7 @@ Practice:
 - [ ] Lambda limitations
 
 Practice:
+
 - [ ] Closure-based counter
 - [ ] Fix late binding bug
 - [ ] Design keyword-only API
@@ -80,6 +84,7 @@ Practice:
 - [ ] `__slots__`
 
 Practice:
+
 - [ ] TimestampMixin
 - [ ] MRO execution tracing
 - [ ] Immutable Money value object
@@ -95,6 +100,7 @@ Practice:
 - [ ] Entities containing Value Objects
 
 Practice:
+
 - [ ] User (Entity) with Email (Value Object)
 - [ ] Money with Decimal and currency checks
 
@@ -114,6 +120,7 @@ Practice:
 - [ ] `ExitStack`
 
 Practice:
+
 - [ ] Config loader with custom exceptions
 - [ ] Logging context manager (class-based)
 - [ ] Same context manager via `@contextmanager`
@@ -131,6 +138,7 @@ Practice:
 - [ ] Memory efficiency
 
 Practice:
+
 - [ ] Custom range iterator
 - [ ] Streaming file reader
 - [ ] Generator pipeline
@@ -146,6 +154,7 @@ Practice:
 - [ ] Method decorators
 
 Practice:
+
 - [ ] Timing decorator
 - [ ] Retry with backoff
 - [ ] Authorization decorator
@@ -162,6 +171,7 @@ Practice:
 - [ ] `mypy`
 
 Practice:
+
 - [ ] Typed service interface
 - [ ] Protocol vs ABC comparison
 
@@ -177,6 +187,7 @@ Practice:
 - [ ] Common async pitfalls
 
 Practice:
+
 - [ ] Async rate limiter
 - [ ] Concurrent HTTP calls
 
@@ -191,6 +202,7 @@ Practice:
 - [ ] When async is better
 
 Practice:
+
 - [ ] Thread-safe counter
 - [ ] Multiprocessing worker pool
 
@@ -205,6 +217,7 @@ Practice:
 - [ ] Testing async code
 
 Practice:
+
 - [ ] Test service layer
 - [ ] Mock external dependency
 
@@ -220,6 +233,7 @@ Practice:
 - [ ] OpenAPI
 
 Practice:
+
 - [ ] CRUD API
 - [ ] Auth-protected endpoint
 
@@ -249,6 +263,7 @@ Project idea:
 **Async Task Processing API**
 
 Checklist:
+
 - [ ] FastAPI
 - [ ] Async DB
 - [ ] Background workers
@@ -260,18 +275,3 @@ Checklist:
 - [ ] Clean README
 
 ---
-
-## 🎯 Interview Readiness Checklist
-
-- [ ] Explain MRO and `super()`
-- [ ] Explain mutable defaults
-- [ ] Explain GIL
-- [ ] Explain async vs threads
-- [ ] Explain Value Objects vs Entities
-- [ ] Explain exception design
-- [ ] Walk through pet-project architecture
-
----
-
-## ✅ Done
-You are interview-ready 🚀
