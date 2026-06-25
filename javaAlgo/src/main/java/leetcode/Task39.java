@@ -55,19 +55,21 @@ public class Task39 {
                            int remaining,
                            List<Integer> path,
                            List<List<Integer>> result) {
+        if (remaining == 0) {
+            result.add(new ArrayList<>(path));
+        }
+
         for (int i = start; i <= candidates.length - 1; i++) {
             if (candidates[i] > remaining) {
                 break;
             }
 
-            if (remaining - candidates[i] == 0) {
-                path.add(candidates[i]);
-                result.add(new ArrayList<>(path));
-            }
-
             int newRemaining = remaining - candidates[i];
             path.add(candidates[i]);
+
             backtrack(i, candidates, newRemaining, path, result);
+
+            path.removeLast();
         }
     }
 }
